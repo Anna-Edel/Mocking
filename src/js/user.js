@@ -1,14 +1,12 @@
-import fetchData from './http'; // Импортируем функцию fetchData
+import { fetchData } from './http';
 
-export function getLevel(userId) {
+export const getLevel = async (userId) => {
     try {
-        const response = fetchData(`https://server/user/${userId}`);
-
+        const response = await fetchData(`https://api.example.com/user/${userId}`);
         if (response.status === 'ok') {
-            return `Ваш текущий уровень: ${response.level}`; 
+            return `Ваш уровень: ${response.level}`;
         }
     } catch (error) {
-        // Обработка ошибок
         return 'Информация об уровне временно недоступна';
     }
-}
+};

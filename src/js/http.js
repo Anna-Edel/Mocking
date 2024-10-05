@@ -1,3 +1,4 @@
-export default function fetchData(url) {
-  throw new Error('Mock this!');
-}
+export const fetchData = (url) => {
+  return fetch(url).then(response => response.json());
+  // Добавьте обработку ошибок, если нужно
+};

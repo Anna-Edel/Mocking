@@ -1,4 +1,3 @@
-// src/js/basic.js
 export function getHealthStatus(character) {
     const { health } = character;
   

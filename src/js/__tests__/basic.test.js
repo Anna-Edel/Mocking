@@ -1,4 +1,3 @@
-// src/js/__tests__/basic.test.js
 import { getHealthStatus } from '../basic';
 
 describe('getHealthStatus', () => {
