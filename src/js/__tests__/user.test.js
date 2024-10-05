@@ -1,16 +1,16 @@
-import { loadUser } from '../user';
-import { httpGet } from '../http';
+import { sortCharacters } from '../user';
 
-jest.mock('../http');
+test('sort characters by health', () => {
+    const characters = [
+        { name: 'мечник', health: 10 },
+        { name: 'маг', health: 100 },
+        { name: 'лучник', health: 80 },
+    ];
 
-beforeEach(() => {
-  jest.resetAllMocks();
-});
-
-test('should call loadUser once', () => {
-  httpGet.mockReturnValue(JSON.stringify({}));
-
-  const response = loadUser(1);
-  expect(response).toEqual({});
-  expect(httpGet).toHaveBeenCalledWith('http://server:8080/users/1');
+    const sorted = sortCharacters(characters);
+    expect(sorted).toEqual([
+        { name: 'маг', health: 100 },
+        { name: 'лучник', health: 80 },
+        { name: 'мечник', health: 10 },
+    ]);
 });
